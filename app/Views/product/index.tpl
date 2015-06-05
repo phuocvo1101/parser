@@ -15,7 +15,22 @@
                   <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              Products
+                              <div class="row">
+                                  <div class="col-xs-6 col-sm-6 placeholder">
+                                      <h1 class="page-header" align="left"><span>  Products</span></h1>
+                                  </div>
+                                  <div class="col-sm-2"></div>
+
+                                  <div class="col-sm-4">
+                                      <div class="input-group">
+                                          <input type="text" class="form-control" id="search" name="search" value="{if isset($search)}{$search}{/if}" placeholder="Search for...">
+                                          <span class="input-group-btn">
+                                           <input class="btn btn-default" type="submit" id="go" name="go" value="Go!" />
+                                          </span>
+                                      </div>
+                                  </div>
+
+                              </div>
                           </header>
                           <div class="panel-body">
                               <section id="unseen">

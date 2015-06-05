@@ -33,6 +33,9 @@
 <section id="container" >
 <!--header start-->
 <header class="header white-bg">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
 <!--logo start-->
 <a href="index.html" class="logo">Toggle <span>navigation</span></a>
 <!--logo end-->
@@ -71,6 +74,12 @@
                 <a href="index.php?controller=product&action=index">
                     <i class="fa fa-tasks"></i>
                     <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?controller=test&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>test</span>
                 </a>
             </li>
 
