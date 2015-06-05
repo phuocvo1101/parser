@@ -5,6 +5,7 @@ namespace Configs;
 use Controllers\ReportController;
 use Controllers\DashBoardController;
 use Controllers\ProductController;
+use Controllers\TestController;
 class Routing {
     protected  $baseController;
     protected  $content;
@@ -19,6 +20,9 @@ class Routing {
 
             switch($_GET["controller"]) {
 
+                case "test":
+                    $this->baseController = new TestController();
+                    break;
                 case "report":
                     $this->baseController = new ReportController();
                     break;
