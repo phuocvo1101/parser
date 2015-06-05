@@ -17,6 +17,9 @@ class BaseModel {
     protected $database;
     public function __construct()
     {
+<<<<<<< HEAD
         $this->database = new Database();
+=======
+>>>>>>> f83541525e7563d11392954d10e7c00b1418bdf3
     }
 } 
