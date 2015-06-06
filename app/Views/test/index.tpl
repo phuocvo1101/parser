@@ -14,23 +14,29 @@
             <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
-
+                        <header class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 placeholder">
-                                    <h3 class="page-header" align="left"><span>  Test</span></h3>
+                                    <h3 align="left"><span> Test</span></h3>
                                 </div>
-                                <div class="col-sm-2"></div>
 
-                                <div class="col-sm-4">
+                                <div class=" col-xs-6 col-sm-4">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="search" name="search" value="{if isset($search)}{$search}{/if}" placeholder="Search phone...">
+                                        <input type="text" class="form-control" id="search" name="search" value="{if isset($search)}{$search}{/if}" placeholder="Search message...">
                                           <span class="input-group-btn">
                                            <input class="btn btn-default" type="submit" id="go" name="go" value="Go!" />
                                           </span>
                                     </div>
+
+                                </div>
+                                <div class=" col-xs-6 col-sm-2">
+                                    <a class="btn btn-primary" href="#">Create</a>
+
                                 </div>
 
                             </div>
+                        </header>
+
 
                         <div class="panel-body">
                             <section id="unseen">
@@ -40,11 +46,11 @@
                                         <th>objectId</th>
                                         <th>mode</th>
                                         <th>name </th>
-                                        <!--<th>object1</th>-->
                                         <th>score </th>
                                         <th>phone </th>
                                         <th>createAt </th>
                                         <th>updateAt</th>
+                                        <th>Action</th>
 
 
                                     </tr>
@@ -62,9 +68,10 @@
                                                 <td>{$item['createAt']}
                                                 </td>
                                                 <td>{$item['updateAt']}</td>
-
-
-
+                                                <td><a href="#" class="btn btn-success">Edit</a>
+                                                    <span>|</span>
+                                                    <a href="#" class="btn btn-info">Delete</a>
+                                                </td>
 
 
                                             </tr>
@@ -73,7 +80,7 @@
 
                                     </tbody>
                                     <tr>
-                                        <td colspan="2" align="right">
+                                        <td colspan="3" align="right">
 
                                             <ul class="pagination" align="center">
 
@@ -83,7 +90,7 @@
                                                 {/if}
                                             </ul>
                                         </td>
-                                        <td colspan="6" align="center">
+                                        <td colspan="4" align="center">
                                             <div>
                                                 Page Size:
                                                 <select id="recordlimit" onchange="answers();">

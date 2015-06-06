@@ -9,7 +9,7 @@
             </div>
             <div class="value">
                 <h1>
-                    {if isset($totalreport)}{$totalreport}{/if}
+
                 </h1>
                 <p>Report Received</p>
             </div>
@@ -22,7 +22,7 @@
             </div>
             <div class="value">
                 <h1>
-                    {if isset($totalproduct)}{$totalproduct}{/if}
+
                 </h1>
                 <p>Products</p>
             </div>

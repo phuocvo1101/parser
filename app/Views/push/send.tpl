@@ -22,14 +22,14 @@
                     </header>
                     <div class="panel-body">
 
-                        <form class="form-horizontal" id="default" action="index.php?controller=push&action=index" method="post">
+                        <form class="form-horizontal" id="default" action="index.php?controller=push&action=send" method="post">
 
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Choose Your Recipients</label>
                                     <div class="col-lg-6">
                                         <select id="choose" class="form-control" name="choose">
-                                            <option selected="selected" value="e">Everyone</option>
-                                            <option value="s">Segment</option>
+                                            <option {if isset($data->target)&& $data->target=="everyone"} selected="selected"{/if} value="e">Everyone</option>
+                                            <option {if isset($data->target)&& $data->target!="everyone"} selected="selected"{/if} value="s">Segment</option>
                                         </select>
 
                                     </div>
@@ -38,13 +38,13 @@
                                 <div style="display:none;" id="channel" class="form-group">
                                     <label class="col-lg-2 control-label">Channels</label>
                                     <div class="col-lg-6">
-                                        <input type="text" name="chan" id="chan" class="form-control" placeholder="Channels">
+                                        <input type="text" name="chan" id="chan" class="form-control" value="{if isset($data->target)&& $data->target!="everyone"}{$data->target}{/if}" placeholder="Channels">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Write Your Message</label>
                                     <div class="col-lg-6">
-                                        <textarea class="form-control" name="message" id="message"></textarea>
+                                        <textarea  class="form-control"  name="message" id="message"  >{if isset($data->name)}{$data->name}{/if}</textarea>
 
                                     </div>
                                 </div>

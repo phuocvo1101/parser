@@ -8,26 +8,26 @@
 
 namespace Controllers;
 
-use Models\ReportModel;
-use Models\ProductModel;
+//use Models\ReportModel;
+//use Models\ProductModel;
 
 class DashBoardController extends BaseController implements IBaseController {
     public function __construct()
     {
         parent::__construct();
-        $this->model = new ReportModel();
-        $this->m= new ProductModel();
+       // $this->model = new ReportModel();
+       // $this->m= new ProductModel();
 
 
     }
 
     public function indexAction()
     {
-        $products= $this->m->listProduct(1,10);
+        /*$products= $this->m->listProduct(1,10);
         $totalproduct= $products['total'];
         $this->template->assign('totalproduct',$totalproduct);
         $totalRecord = $this->model->listReport(0,10,1);
-        $this->template->assign('totalreport',$totalRecord);
+        $this->template->assign('totalreport',$totalRecord);*/
         return $this->template->fetch('dashboard/index.tpl');
     }
 

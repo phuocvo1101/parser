@@ -44,16 +44,46 @@ class PushModel extends BaseModel
             }
         return true;
     }
-    public function getdataMessage()
+    public function getMessage($id)
     {
-        $query = 'SELECT * FROM pushnotifications ORDER BY `time` desc';
+        $query="select * from pushnotifications WHERE id=?";
         $this->database->setQuery($query);
-        $result= $this->database->loadAllRows();
-       // echo '<pre>'.print_r($result,true).'</pre>';die();
-        if(!$result){
-            return false;
-        }
+        $result = $this->database->loadRow(array(
+            array($id,\PDO::PARAM_INT)
+        ));
         return $result;
+    }
+    public function getdataMessage($start,$limit,$count=0,$search='')
+    {
+        ///
+        $arrSearch=array();
+        $strLike = '';
+        if(!empty($search)){
+            $strLike = ' WHERE (`name` like ?)';
+        }
+        $query="SELECT count(*) AS total FROM `pushnotifications` "." ".$strLike.' ORDER BY `time` desc';
+
+        $querylimit = "SELECT * FROM `pushnotifications` "." ".$strLike.' ORDER BY `time` desc  LIMIT ?, ?';
+        //echo $query;die();
+        if(!empty($search)) {
+            $arrSearch[] = array('%'.$search.'%',\PDO::PARAM_STR);
+        }
+
+
+        if($count==1) {
+            $this->database->setQuery($query);
+            $total = $this->database->loadRow($arrSearch);
+            return $total->total;
+        }
+
+        $arrSearch[] =array($start,\PDO::PARAM_INT);
+        $arrSearch[] =array($limit,\PDO::PARAM_INT);
+
+        $this->database->setQuery($querylimit);
+        $result = $this->database->loadAllRows($arrSearch);
+        return $result;
+
+
 
     }
     
@@ -79,6 +109,7 @@ class PushModel extends BaseModel
         }
         return true;
     }
+
 
 
 }
