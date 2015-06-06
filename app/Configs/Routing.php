@@ -6,6 +6,7 @@ use Controllers\ReportController;
 use Controllers\DashBoardController;
 use Controllers\ProductController;
 use Controllers\TestController;
+use Controllers\PushController;
 class Routing {
     protected  $baseController;
     protected  $content;
@@ -22,6 +23,9 @@ class Routing {
 
                 case "test":
                     $this->baseController = new TestController();
+                    break;
+                case "push":
+                    $this->baseController = new PushController();
                     break;
                 case "report":
                     $this->baseController = new ReportController();

@@ -8,7 +8,6 @@
 
 namespace Controllers;
 
-
 use Models\ReportModel;
 use Models\ProductModel;
 
