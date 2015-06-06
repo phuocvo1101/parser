@@ -82,6 +82,12 @@
                     <span>test</span>
                 </a>
             </li>
+            <li>
+                <a href="index.php?controller=push&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>Push Notifications</span>
+                </a>
+            </li>
 
             
             <!--multi level menu end-->
