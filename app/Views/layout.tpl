@@ -59,23 +59,12 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
             <li>
-                <a class="active" href="index.php?controller=dashboard&action=index">
+                <a href="index.php?controller=dashboard&action=index">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
-             <li>
-                <a href="index.php?controller=report&action=index">
-                    <i class="fa fa-book"></i>
-                    <span>Reports</span>
-                </a>
-            </li>
-             <li>
-                <a href="index.php?controller=product&action=index">
-                    <i class="fa fa-tasks"></i>
-                    <span>Products</span>
-                </a>
-            </li>
+
             <li>
                 <a href="index.php?controller=test&action=index">
                     <i class="fa fa-tasks"></i>

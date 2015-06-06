@@ -2,9 +2,7 @@
 namespace Configs;
 
 
-use Controllers\ReportController;
 use Controllers\DashBoardController;
-use Controllers\ProductController;
 use Controllers\TestController;
 use Controllers\PushController;
 class Routing {
@@ -27,12 +25,6 @@ class Routing {
                 case "push":
                     $this->baseController = new PushController();
                     break;
-                case "report":
-                    $this->baseController = new ReportController();
-                    break;
-                case "product":
-                    $this->baseController = new ProductController();
-                    break;
                 case "dashboard":
                     $this->baseController = new DashBoardController();
                     break;
@@ -43,6 +35,15 @@ class Routing {
             switch(strtolower($_GET['action'])) {
                 case 'index':
                     $this->content = $this->baseController->indexAction();
+                    break;
+                case 'send':
+                    $this->content = $this->baseController->sendMessage();
+                    break;
+                case 'resend':
+                    $this->content = $this->baseController->resendMessage();
+                    break;
+                case 'update':
+                    $this->content = $this->baseController->updateMessage();
                     break;
                 default:
                     $this->content =$this->baseController->indexAction();
