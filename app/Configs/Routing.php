@@ -11,6 +11,8 @@ use Controllers\TestController;
 use Controllers\PushController;
 use Controllers\EventController;
 use Controllers\ImageSliderController;
+use Controllers\UserController;
+use Controllers\InstallationController;
 class Routing {
     protected  $baseController;
     protected  $content;
@@ -27,6 +29,12 @@ class Routing {
 
                 case "test":
                     $this->baseController = new TestController();
+                    break;
+                case "installation":
+                    $this->baseController = new InstallationController();
+                    break;
+                case "user":
+                    $this->baseController = new UserController();
                     break;
                 case "gallery":
                     $this->baseController = new GalleryController();

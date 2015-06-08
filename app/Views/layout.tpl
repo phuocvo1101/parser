@@ -64,6 +64,18 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+            <li>
+                <a href="index.php?controller=installation&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>Installation</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?controller=user&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>User</span>
+                </a>
+            </li>
 
             <li>
                 <a href="index.php?controller=test&action=index">
