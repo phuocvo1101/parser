@@ -93,7 +93,7 @@ class PushController extends BaseController implements IBaseController
             $result= $this->model->PushToMessage($mess,$channel);
             return $this->indexAction();
     }
-    public function updateMessage()
+    public function updateAction()
     {
         if(isset($_POST['sendmess'])){
             $channel= isset($_POST['chan'])?$_POST['chan']:'';
@@ -121,6 +121,7 @@ class PushController extends BaseController implements IBaseController
         }
         $id= $_GET['id'];
         $dataMess= $this->model->getMessage($id);
+       // echo '<pre>'.print_r($dataMess,true).'</pre>';die();
         $this->template->assign('data',$dataMess);
 
         return $this->template->fetch('push/send.tpl');

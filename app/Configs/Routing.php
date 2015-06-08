@@ -3,8 +3,12 @@ namespace Configs;
 
 
 use Controllers\DashBoardController;
+use Controllers\GalleryController;
+use Controllers\GalleryFolderController;
 use Controllers\TestController;
 use Controllers\PushController;
+use Controllers\EventController;
+use Controllers\ImageSliderController;
 class Routing {
     protected  $baseController;
     protected  $content;
@@ -22,7 +26,25 @@ class Routing {
                 case "test":
                     $this->baseController = new TestController();
                     break;
+                case "gallery":
+                    $this->baseController = new GalleryController();
+                    break;
+                case "galleryFolder":
+                    $this->baseController = new GalleryFolderController();
+                    break;
                 case "push":
+                    $this->baseController = new PushController();
+                    break;
+                case "event":
+                    $this->baseController = new EventController();
+                    break;
+                case "imageSlider":
+                    $this->baseController = new ImageSliderController();
+                    break;
+                case "dayTitle":
+                    $this->baseController = new GalleryFolderController();
+                    break;
+                case "staticData":
                     $this->baseController = new PushController();
                     break;
                 case "dashboard":
@@ -36,15 +58,22 @@ class Routing {
                 case 'index':
                     $this->content = $this->baseController->indexAction();
                     break;
+                case 'create':
+                    $this->content = $this->baseController->createAction();
+                    break;
+                case 'update':
+                    $this->content = $this->baseController->updateAction();
+                    break;
+                case 'delete':
+                    $this->content = $this->baseController->deleteAction();
+                    break;
                 case 'send':
                     $this->content = $this->baseController->sendMessage();
                     break;
                 case 'resend':
                     $this->content = $this->baseController->resendMessage();
                     break;
-                case 'update':
-                    $this->content = $this->baseController->updateMessage();
-                    break;
+
                 default:
                     $this->content =$this->baseController->indexAction();
                     break;

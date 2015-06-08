@@ -54,26 +54,62 @@ class TestController extends BaseController implements IBaseController
         $this->template->assign('listPage',$listPage);
 
         return $this->template->fetch('test/index.tpl');
-       /* $start = isset($_REQUEST['start']) ? $_REQUEST['start'] : 0;
 
 
-        $limit = isset($_REQUEST['limit']) ? $_REQUEST['limit'] : 10;
-        $page = ($start/$limit) + 1;
+    }
+    public function createAction()
+    {
+        if(isset($_POST['create'])){
+            $mode= isset($_POST['mode'])?$_POST['mode']:'';
+            $name= isset($_POST['name'])?$_POST['name']:'';
+            $phone= isset($_POST['phone'])?$_POST['phone']:'';
+            $score= isset($_POST['score'])?$_POST['score']:'';
+            $data= array(
+                'mode'=>$mode,
+                'name'=>$name,
+                'phone'=>$phone,
+                'score'=>(int)$score
+            );
+            $this->model->testCreate($data);
+            return $this->indexAction();
+        }
+        return $this->template->fetch('test/create.tpl');
 
-        $result = $this->model->listProduct($page, $limit);
-        $Pagination = new Pagination($limit, 'index.php?controller=product&action=index&search=' . $search);//,$base_url
 
-        $totalRecord = $result['total'];
-        $totalPages = $Pagination->totalPages($totalRecord);
-        $listPage = $Pagination->listPages($totalPages);*/
+    }
+    public function updateAction()
+    {
+        $id= $_GET['id'];
+        if(isset($_POST['update'])){
+            $mode= isset($_POST['mode'])?$_POST['mode']:'';
+            $name= isset($_POST['name'])?$_POST['name']:'';
+            $phone= isset($_POST['phone'])?$_POST['phone']:'';
+            $score= isset($_POST['score'])?$_POST['score']:'';
+            $data= array(
+                'mode'=>$mode,
+                'name'=>$name,
+                'phone'=>$phone,
+                'score'=>(int)$score
+            );
+            $this->model->testUpdate($data,$id);
+            return $this->indexAction();
+        }
 
-       // $this->template->assign('tests', $tests);
-       /* $this->template->assign('search', $search);
-        $this->template->assign('limit', $limit);
-        $this->template->assign('start', $start);
-        $this->template->assign('totalrecords', $totalRecord);
-        $this->template->assign('totalpages', $totalPages);
-        $this->template->assign('listPage', $listPage);*/
-
+        $test= $this->model->testId($id);
+        $this->template->assign('test',$test);
+        return $this->template->fetch('test/update.tpl');
+       // echo 'update test';
+    }
+    public function deleteAction()
+    {
+        $id= $_GET['id'];
+        if(isset($_POST['delete'])){
+          //  echo $id;die();
+            $this->model->testDelete($id);
+            return $this->indexAction();
+        }
+        $test= $this->model->testId($id);
+        $this->template->assign('test',$test);
+        return $this->template->fetch('test/delete.tpl');
     }
 }

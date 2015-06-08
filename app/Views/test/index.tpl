@@ -30,7 +30,7 @@
 
                                 </div>
                                 <div class=" col-xs-6 col-sm-2">
-                                    <a class="btn btn-primary" href="#">Create</a>
+                                    <a class="btn btn-primary" href="index.php?controller=test&action=create">Create</a>
 
                                 </div>
 
@@ -61,16 +61,16 @@
                                             <tr>
                                                 <td>{$item['objectId']}</td>
                                                 <td>{$item['mode']}</td>
-                                                <td>{$item['mode']}</td>
+                                                <td>{$item['name']}</td>
 
                                                 <td>{$item['score']}</td>
                                                 <td>{$item['phone']}</td>
                                                 <td>{$item['createAt']}
                                                 </td>
                                                 <td>{$item['updateAt']}</td>
-                                                <td><a href="#" class="btn btn-success">Edit</a>
+                                                <td><a href="index.php?controller=test&action=update&id={$item['objectId']}" class="btn btn-success">Edit</a>
                                                     <span>|</span>
-                                                    <a href="#" class="btn btn-info">Delete</a>
+                                                    <a href="index.php?controller=test&action=delete&id={$item['objectId']}" class="btn btn-info">Delete</a>
                                                 </td>
 
 
