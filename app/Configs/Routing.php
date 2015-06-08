@@ -3,8 +3,10 @@ namespace Configs;
 
 
 use Controllers\DashBoardController;
+use Controllers\DayTitleController;
 use Controllers\GalleryController;
 use Controllers\GalleryFolderController;
+use Controllers\StaticDataController;
 use Controllers\TestController;
 use Controllers\PushController;
 use Controllers\EventController;
@@ -42,10 +44,10 @@ class Routing {
                     $this->baseController = new ImageSliderController();
                     break;
                 case "dayTitle":
-                    $this->baseController = new GalleryFolderController();
+                    $this->baseController = new DayTitleController();
                     break;
                 case "staticData":
-                    $this->baseController = new PushController();
+                    $this->baseController = new StaticDataController();
                     break;
                 case "dashboard":
                     $this->baseController = new DashBoardController();
