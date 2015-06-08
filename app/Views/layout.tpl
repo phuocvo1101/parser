@@ -72,9 +72,45 @@
                 </a>
             </li>
             <li>
+                <a href="index.php?controller=gallery&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?controller=galleryFolder&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>GalleryFolder</span>
+                </a>
+            </li>
+            <li>
                 <a href="index.php?controller=push&action=index">
                     <i class="fa fa-tasks"></i>
                     <span>Push Notifications</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?controller=event&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>Events</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?controller=imageSlider&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>ImageSliders</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?controller=dayTitle&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>DayTitle</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php?controller=staticData&action=index">
+                    <i class="fa fa-tasks"></i>
+                    <span>StaticData</span>
                 </a>
             </li>
 

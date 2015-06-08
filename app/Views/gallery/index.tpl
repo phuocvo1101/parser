@@ -7,7 +7,7 @@
         frm.submit();
     }
 </script>
-<form id="frm" action="index.php?controller=test&action=index" method="post">
+<form id="frm" action="index.php?controller=gallery&action=index" method="post">
     <section id="main-content">
         <section class="wrapper">
             <!-- page start-->
@@ -17,12 +17,12 @@
                         <header class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 placeholder">
-                                    <h3 align="left"><span> Test</span></h3>
+                                    <h3 align="left"><span> Gallery</span></h3>
                                 </div>
 
                                 <div class=" col-xs-6 col-sm-4">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="search" name="search" value="{if isset($search)}{$search}{/if}" placeholder="Search message...">
+                                        <input type="text" class="form-control" id="search" name="search" value="{if isset($search)}{$search}{/if}" placeholder="Search title...">
                                           <span class="input-group-btn">
                                            <input class="btn btn-default" type="submit" id="go" name="go" value="Go!" />
                                           </span>
@@ -30,7 +30,7 @@
 
                                 </div>
                                 <div class=" col-xs-6 col-sm-2">
-                                    <a class="btn btn-primary" href="index.php?controller=test&action=create">Create</a>
+                                    <a class="btn btn-primary" href="index.php?controller=gallery&action=create">Create</a>
 
                                 </div>
 
@@ -44,10 +44,11 @@
                                     <thead>
                                     <tr>
                                         <th>objectId</th>
-                                        <th>mode</th>
-                                        <th>name </th>
-                                        <th>score </th>
-                                        <th>phone </th>
+                                        <th>FolderId</th>
+                                        <th>Photo </th>
+                                        <th>Title </th>
+                                        <th>Type </th>
+                                        <th>Video </th>
                                         <th>createAt </th>
                                         <th>updateAt</th>
                                         <th>Action</th>
@@ -56,21 +57,34 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {if isset($tests)}
-                                        {foreach $tests as $key=>$item}
+                                    {if isset($gallery)}
+                                        {foreach $gallery as $key=>$item}
                                             <tr>
                                                 <td>{$item['objectId']}</td>
-                                                <td>{$item['mode']}</td>
-                                                <td>{$item['name']}</td>
+                                                <td>{$item['FolderId']}</td>
+                                                <td>
+                                                    {if !empty($item['Photo']) }
+                                                    <a target="_blank" href="{$item['Photo']->getUrl()}">
+                                                        {substr(strrchr($item['Photo']->getName(), "-"), 1)}
+                                                    </a>
+                                                    {/if}
+                                                </td>
 
-                                                <td>{$item['score']}</td>
-                                                <td>{$item['phone']}</td>
+                                                <td>{$item['Title']}</td>
+                                                <td>{$item['Type']}</td>
+                                                <td>
+                                                    {if !empty($item['Video']) }
+                                                        <a target="_blank" href="{$item['Video']->getUrl()}">
+                                                            {substr(strrchr($item['Video']->getName(), "-"), 1)}
+                                                        </a>
+                                                    {/if}
+                                                </td>
                                                 <td>{$item['createAt']}
                                                 </td>
                                                 <td>{$item['updateAt']}</td>
-                                                <td><a href="index.php?controller=test&action=update&id={$item['objectId']}" class="btn btn-success">Edit</a>
+                                                <td><a href="index.php?controller=gallery&action=update&id={$item['objectId']}" class="btn btn-success">Edit</a>
                                                     <span>|</span>
-                                                    <a href="index.php?controller=test&action=delete&id={$item['objectId']}" class="btn btn-info">Delete</a>
+                                                    <a href="index.php?controller=gallery&action=delete&id={$item['objectId']}" class="btn btn-info">Delete</a>
                                                 </td>
 
 
