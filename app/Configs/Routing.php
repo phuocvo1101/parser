@@ -12,6 +12,8 @@ use Controllers\PushController;
 use Controllers\EventController;
 use Controllers\ImageSliderController;
 use Controllers\UserController;
+use Controllers\SystemUserController;
+use Controllers\AccountController;
 use Controllers\InstallationController;
 class Routing {
     protected  $baseController;
@@ -23,9 +25,10 @@ class Routing {
 
     public function getRouting()
     {
+        $layout='layout.tpl';
         if(isset($_GET["controller"]) && isset($_GET['action'])) {
 
-            switch($_GET["controller"]) {
+            switch(strtolower($_GET["controller"])) {
 
                 case "test":
                     $this->baseController = new TestController();
@@ -60,6 +63,12 @@ class Routing {
                 case "dashboard":
                     $this->baseController = new DashBoardController();
                     break;
+                case "account":
+                    $this->baseController = new AccountController();
+                    break;
+                case "systemuser":
+                    $this->baseController = new SystemUserController();
+                    break;
                 default:
                     $this->baseController = new DashBoardController();
                     break;
@@ -83,7 +92,28 @@ class Routing {
                 case 'resend':
                     $this->content = $this->baseController->resendMessage();
                     break;
-
+                case 'view':
+                    $this->content = $this->baseController->viewAction();
+                    break;
+                case 'active':
+                    $this->content = $this->baseController->activeAction();
+                    break;
+                case 'edit':
+                    $this->content = $this->baseController->editAction();
+                    break;
+                case 'changepassword':
+                    $this->content = $this->baseController->changePasswordAction();
+                    break;
+                case 'changepassworduser':
+                    $this->content = $this->baseController->changePasswordUserAction();
+                    break;
+                case 'login':
+                    $layout='loginlayout.tpl';
+                    $this->content = $this->baseController->login();
+                    break;
+                case 'logout':
+                    $this->content = $this->baseController->logout();
+                    break;
                 default:
                     $this->content =$this->baseController->indexAction();
                     break;
@@ -95,6 +125,6 @@ class Routing {
             $this->content = $basecontroller->indexAction();
         }
 
-        return $this->content;
+        return array($this->content,$layout);
     }
 }

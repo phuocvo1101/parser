@@ -20,6 +20,7 @@ class Database extends \PDO {
 
     public function __construct()
     {
+        parent::__construct('mysql:host='.$this->host.';dbname='.$this->db, $this->user, $this->pass);
         $this->_dbh =  new parent('mysql:host='.$this->host.';dbname='.$this->db, $this->user, $this->pass);
         $this->_dbh->query('set name "utf8"');
     }
