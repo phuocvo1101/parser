@@ -15,15 +15,12 @@ class Database extends \PDO {
     protected  $host='localhost';
     protected $user='root';
     protected $pass='';
-<<<<<<< HEAD
-    protected $db='tradedoubler';
-=======
-    protected $db='dbflex';
->>>>>>> f83541525e7563d11392954d10e7c00b1418bdf3
+    protected $db='parser';
     //khoi tao lop ket noi den CSDL
 
     public function __construct()
     {
+        parent::__construct('mysql:host='.$this->host.';dbname='.$this->db, $this->user, $this->pass);
         $this->_dbh =  new parent('mysql:host='.$this->host.';dbname='.$this->db, $this->user, $this->pass);
         $this->_dbh->query('set name "utf8"');
     }

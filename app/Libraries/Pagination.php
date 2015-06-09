@@ -54,12 +54,9 @@ class Pagination {
 
 
             for($i=$cursor-4;$i<=$cursor+5;$i++){
-<<<<<<< HEAD
                 if($i>$totalPages){
                     break;
                 }
-=======
->>>>>>> f83541525e7563d11392954d10e7c00b1418bdf3
                 $newstart = ($i - 1)*$limit;
                 if($i == $current){
                     $listPage .= '<li class="active"><a href="#">'.$i.'<span class="sr-only">(current)</span></a></li>';
