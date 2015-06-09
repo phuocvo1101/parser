@@ -87,7 +87,7 @@
                                                 {/if}
                                             </ul>
                                         </td>
-                                        <td colspan="3" align="center">
+                                        <td colspan="4" align="center">
                                             <div>
                                                 Page Size:
                                                 <select id="recordlimit" onchange="answers();">

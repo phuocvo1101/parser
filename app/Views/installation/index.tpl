@@ -79,8 +79,7 @@
                                                 </td>
                                                 <td>{$item['updateAt']}</td>
                                                 <td>
-                                                    <a href="index.php?controller=installation&action=update&id={$item['objectId']}" class="btn btn-primary">Update</a>
-                                                    <span>|</span>
+
                                                     <a href="index.php?controller=installation&action=delete&id={$item['objectId']}" class="btn btn-info">Delete</a>
                                                 </td>
 
@@ -101,7 +100,7 @@
                                                 {/if}
                                             </ul>
                                         </td>
-                                        <td colspan="9" align="center">
+                                        <td colspan="10" align="center">
                                             <div>
                                                 Page Size:
                                                 <select id="recordlimit" onchange="answers();">

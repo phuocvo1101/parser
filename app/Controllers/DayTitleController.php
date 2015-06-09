@@ -10,7 +10,9 @@ class DayTitleController extends BaseController implements IBaseController
 {
     public function __construct()
     {
+        //echo 'dhdh';die();
         parent::__construct();
+
         $this->model = new DayTitleModel();
     }
 
