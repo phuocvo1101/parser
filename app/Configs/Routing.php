@@ -42,22 +42,23 @@ class Routing {
                 case "gallery":
                     $this->baseController = new GalleryController();
                     break;
-                case "galleryFolder":
+                case "galleryfolder":
                     $this->baseController = new GalleryFolderController();
                     break;
+
                 case "push":
                     $this->baseController = new PushController();
                     break;
                 case "event":
                     $this->baseController = new EventController();
                     break;
-                case "imageSlider":
+                case "imageslider":
                     $this->baseController = new ImageSliderController();
                     break;
-                case "dayTitle":
+                case "daytitle":
                     $this->baseController = new DayTitleController();
                     break;
-                case "staticData":
+                case "staticdata":
                     $this->baseController = new StaticDataController();
                     break;
                 case "dashboard":

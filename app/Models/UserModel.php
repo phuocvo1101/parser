@@ -100,6 +100,23 @@ class UserModel extends BaseModel
 //echo '<pre>'.print_r($arr,true).'</pre>';die();
         return array('data'=>$arr,'count'=>$count);
     }
+
+    public  function clearClass($class)
+    {
+        $query = new ParseQuery($class);
+        $query->each(
+            function (ParseObject $obj) {
+                $obj->destroy(true);
+            }, true
+        );
+    }
+
+    public function shutdownUser()
+    {
+
+        ParseUser::logOut();
+    }
+
     public function userCreate($data)
     {
        // $obj = ParseUser::query();
@@ -109,6 +126,7 @@ class UserModel extends BaseModel
         $user->set('email', $data['email']);
         try {
             $user->signUp();
+            $this->shutdownUser();
             // Hooray! Let them use the app now.
         } catch (ParseException $ex) {
             // Show the error message somewhere and let the user try again.
@@ -119,6 +137,7 @@ class UserModel extends BaseModel
     {
         try {
             ParseUser::requestPasswordReset($email);
+            $this->shutdownUser();
             // Password reset request was sent successfully
         } catch (ParseException $ex) {
             // Password reset failed, check the exception message
@@ -130,7 +149,7 @@ class UserModel extends BaseModel
         try {
             $obj = $user->get($id);
             $obj->destroy(true);
-
+            $this->shutdownUser();
             return true;
         } catch (ParseException $ex) {
             return false;

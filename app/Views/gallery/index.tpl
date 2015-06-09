@@ -94,7 +94,7 @@
 
                                     </tbody>
                                     <tr>
-                                        <td colspan="3" align="right">
+                                        <td colspan="4" align="right">
 
                                             <ul class="pagination" align="center">
 
@@ -104,7 +104,7 @@
                                                 {/if}
                                             </ul>
                                         </td>
-                                        <td colspan="4" align="center">
+                                        <td colspan="5" align="center">
                                             <div>
                                                 Page Size:
                                                 <select id="recordlimit" onchange="answers();">

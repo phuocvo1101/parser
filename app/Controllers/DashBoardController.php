@@ -23,6 +23,7 @@ class DashBoardController extends BaseController implements IBaseController {
 
     public function indexAction()
     {
+       // echo 'dar';die();
         /*$products= $this->m->listProduct(1,10);
         $totalproduct= $products['total'];
         $this->template->assign('totalproduct',$totalproduct);
