@@ -2,5 +2,8 @@ vendor
 app/caches
 app/caches/*
 composer.lock
+<<<<<<< HEAD
 bin/Oara/data/curl/azzarev/TradeDoubler
+=======
+>>>>>>> f83541525e7563d11392954d10e7c00b1418bdf3
 .idea/
