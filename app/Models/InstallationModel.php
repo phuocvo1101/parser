@@ -26,21 +26,28 @@ class InstallationModel extends BaseModel
 
 
     }
-    public function testId($id)
+    public function installationId($id)
     {
-        $query = new ParseQuery("test");
-        $query->equalTo("objectId", $id);
-        $result = $query->find();
+        $query= ParseInstallation::query();
+        $query->get($id);
+       // $query->equalTo("objectId", $id);
+        $result = $query->find(true);
         // return $result;
         $arr= array();
         foreach($result as $item) {
             $arr[]= (array(
                 'objectId'=>$item->getObjectId(),
-                'mode'=>$item->get('mode'),
-                'name'=>$item->get('name'),
-                'object1'=>$item->get('object1'),
-                'score'=>$item->get('score'),
-                'phone'=>$item->get('phone'),
+                'appIdentifier'=>$item->get('appIdentifier'),
+                'appName'=>$item->get('appName'),
+                'appVersion'=>$item->get('appVersion'),
+                'deviceName'=>$item->get('deviceName'),
+                'deviceToken'=>$item->get('deviceToken'),
+                'deviceTokenLastModified'=>$item->get('deviceTokenLastModified'),
+                'deviceType'=>$item->get('deviceType'),
+                'installationId'=>$item->get('installationId'),
+                'parseVersion'=>$item->get('parseVersion'),
+                'pushType'=>$item->get('pushType'),
+                'timeZone'=>$item->get('timeZone'),
                 'createAt'=>$item->getCreatedAt()->format('m-d-y H:i:s'),
                 'updateAt'=>$item->getUpdatedAt()->format('m-d-y H:i:s'),
 
@@ -110,6 +117,33 @@ class InstallationModel extends BaseModel
 
 //echo '<pre>'.print_r($arr,true).'</pre>';die();
         return array('data'=>$arr,'count'=>$count);
+    }
+
+    public function installationUpdate($data,$id)
+    {
+       $query= ParseInstallation::query();
+        //$query = ParseObject::create('Installation');
+        try {
+            //$idobject= $id;
+
+            $obj = $query->get($id);
+            $obj->set('appIdentifier', $data['appIdentifier']);
+            $obj->set('timeZone', $data['timeZone']);
+            $obj->set('deviceName', $data['deviceName']);
+            $obj->set('appName', $data['appName']);
+            $obj->set('appVersion', $data['appVersion']);
+            $obj->set('parseVersion', $data['parseVersion']);
+            $obj->set('deviceTokenLastModified', $data['deviceTokenLastModified']);
+
+            $obj->save(true);
+
+            return true;
+        } catch (ParseException $ex) {
+            echo 'jjj';die();
+            return false;
+        }
+
+
     }
 
     public function installationDelete($id)

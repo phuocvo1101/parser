@@ -57,6 +57,37 @@ class InstallationController extends BaseController implements IBaseController
 
 
     }
+    public function updateAction()
+    {
+        $id= $_GET['id'];
+
+        if(isset($_POST['update'])){
+            $appIdentifier= isset($_POST['appIdentifier'])?$_POST['appIdentifier']:'';
+            $timeZone= isset($_POST['timeZone'])?$_POST['timeZone']:'';
+            $deviceName= isset($_POST['deviceName'])?$_POST['deviceName']:'';
+            $appName= isset($_POST['appName'])?$_POST['appName']:'';
+            $appVersion= isset($_POST['appVersion'])?$_POST['appVersion']:'';
+            $parseVersion= isset($_POST['parseVersion'])?$_POST['parseVersion']:'';
+            $deviceTokenLastModified= isset($_POST['deviceTokenLastModified'])?$_POST['deviceTokenLastModified']:'';
+            $data= array(
+                'appIdentifier'=>$appIdentifier,
+                'timeZone'=>$timeZone,
+                'deviceName'=>$deviceName,
+                'appName'=>$appName,
+                'appVersion'=>$appVersion,
+                'parseVersion'=>$parseVersion,
+                'deviceTokenLastModified'=>$deviceTokenLastModified,
+            );
+            $this->model->installationUpdate($data,$id);
+            return $this->indexAction();
+        }
+
+        $install= $this->model->installationId($id);
+       // echo '<pre>'.print_r($install,true).'</pre>';die();
+        $this->template->assign('install',$install);
+        return $this->template->fetch('installation/update.tpl');
+        // echo 'update test';
+    }
     public function deleteAction()
     {
         $id= $_GET['id'];
