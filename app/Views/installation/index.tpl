@@ -47,6 +47,7 @@
                                         <th>appVersion </th>
                                         <th>deviceName </th>
                                         <th>deviceToken </th>
+                                        <th>deviceTokenLastModified</th>
 
                                         <th>deviceType </th>
                                         <th>installationId </th>
@@ -69,6 +70,7 @@
                                                 <td>{$item['appVersion']}</td>
                                                 <td>{$item['deviceName']}</td>
                                                 <td>{$item['deviceToken']}</td>
+                                                <td>{$item['deviceTokenLastModified']}</td>
                                                 <td>{$item['deviceType']}</td>
                                                 <td>{$item['installationId']}</td>
                                                 <td>{$item['parseVersion']}</td>
@@ -77,6 +79,8 @@
                                                 </td>
                                                 <td>{$item['updateAt']}</td>
                                                 <td>
+                                                    <a href="index.php?controller=installation&action=update&id={$item['objectId']}" class="btn btn-primary">Update</a>
+                                                    <span>|</span>
                                                     <a href="index.php?controller=installation&action=delete&id={$item['objectId']}" class="btn btn-info">Delete</a>
                                                 </td>
 
